@@ -23,7 +23,6 @@ public class Consumer {
 
         //while (true) {
             var records = consumer.poll(Duration.ofMillis(100));
-
             records.forEach(r -> {
                 System.out.println("Compra nova: ");
                 System.out.println(r.key());
@@ -39,6 +38,7 @@ public class Consumer {
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092"); // onde o kafka está rodando
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "consumo-cliente");
         return properties;
     }
