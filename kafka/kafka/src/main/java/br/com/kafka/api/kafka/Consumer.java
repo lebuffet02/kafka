@@ -21,24 +21,18 @@ public class Consumer {
         var consumer = new KafkaConsumer<String, String>(properties());
         consumer.subscribe(Collections.singletonList("compras.do.cliente"));
 
-        while (true) {
+        //while (true) {
             var records = consumer.poll(Duration.ofMillis(100));
-            for (var r : records) {
+
+            records.forEach(r -> {
                 System.out.println("Compra nova: ");
                 System.out.println(r.key());
                 System.out.println(r.value());
                 System.out.println(r.offset());
                 System.out.println(r.partition());
-            }
-//            records.forEach(r -> {
-//                System.out.println("Compra nova: ");
-//                System.out.println(r.key());
-//                System.out.println(r.value());
-//                System.out.println(r.offset());
-//                System.out.println(r.partition());
-//            });
+            });
         }
-    }
+    //}
 
     private static Properties properties() {
         var properties = new Properties();

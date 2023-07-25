@@ -12,9 +12,7 @@ import java.util.concurrent.ExecutionException;
 public class Producer {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-
         var producer = new KafkaProducer<String, String>(properties());
-        var record = new ProducerRecord<>("compras.do.cliente", "cliente-1", "compras50reais");
 
         Callback callback = (data, e) -> {
             if (e != null) {
@@ -25,7 +23,11 @@ public class Producer {
             System.out.println(data.partition());
             System.out.println(data.offset());
         };
-        producer.send(record, callback).get();
+
+        for (int i = 0; i < 10; i++) {
+            var record = new ProducerRecord<>("ecommerce.compras", "cliente " + i,"compras: " + i + " reais");
+            producer.send(record, callback).get();
+        }
     }
 
     private static Properties properties() {

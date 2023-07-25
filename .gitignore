@@ -3,6 +3,7 @@ target/
 !projectCRUD/projectCRUD/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/target/
 
 ### STS ###
 .apt_generated
@@ -14,10 +15,19 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+../../.idea
 *.iws
 *.iml
 *.ipr
+*.lst
+.txt
+.idea
+*.class
+*.jar
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+*.txt
 
 ### NetBeans ###
 /nbproject/private/
@@ -31,3 +41,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+kafka/kafka/target/surefire-reports/TEST-br.com.kafka.api.KafkaApplicationTests.xml
