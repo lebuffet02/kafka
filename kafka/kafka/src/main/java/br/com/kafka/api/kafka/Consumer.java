@@ -42,5 +42,4 @@ public class Consumer {
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "consumo-cliente");
         return properties;
     }
-
 }
