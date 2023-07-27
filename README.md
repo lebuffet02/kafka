@@ -1,6 +1,7 @@
 # kafka-spring
 
 
+
 ### CMD 1:
 
 ```sh
@@ -8,11 +9,13 @@ C:\Users\???\kafka\bin\windows>zookeeper-server-start.bat ../../config/zookeeper
 ```
 
 
+
 ### CMD 2:
 
 ```sh
 C:\Users\???\kafka\bin\windows>kafka-server-start.bat ../../config/server.properties
 ```
+
 
 
 ### CMD 3:
@@ -26,10 +29,17 @@ C:\Users\???\kafka\bin\windows>kafka-topics.bat --bootstrap-server localhost:909
 ```
 
 
+
 ### CRIAR NOVO TOPICO
 
 ```sh
 C:\Users\???\kafka\bin\windows>kafka-topics.bat --bootstrap-server localhost:9092 --create --topic ecommerce.cliente2 --partitions 1 --replication-factor 1
 ```
 
+
+
+## Output
+
+
+![kafka](kafka.png)
 
